@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agar Clone!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+</head>
+<body>
+
+<div id="container">
+    <div id="game-field" class="col-sm-12">
+        <canvas id="the-canvas" style="background: url('images/starfield.jpg')">
+        </canvas>
+        <div id="score-wrapper" class="hiddenOnStart" hidden>
+            <div>Score: <span class="player-score"></span></div>
+        </div>
+        <div id="leader-board-wrapper" class="hiddenOnStart" hidden>
+            <div id="leader-board">
+                <h3 class="text-center">Leaders</h3>
+                <hr>
+                <ol class="leader-board">
+                    <li class="leaderboard-player"></li>
+                </ol>
+                <hr>
+            </div>
+            <div id="sort-wrapper">
+                <div id="sort-header" class="text-center">SORT BY</div>
+                <div id="sort-score" class="sort-option active">Score</div>
+                <div id="sort-orbs" class="sort-option">Orb</div>
+                <div id="sort-players" class="sort-option">Players</div>
+            </div>
+        </div>
+        <div id="game-message-wrapper">
+            <div id="game-message">{{gameMessage}}</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title text-center">the game</h2>
+            </div>
+            <div class="modal-body">
+                <form class="name-form">
+                    <div class="text-center error-message"></div>
+                    <input id="name-input" class="text-input text-center form-control" type="text" name="name-input"
+                           placeholder="Enter your name here" required>
+                    <button type="submit" class="btn play-button play-guest">Play</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- START MODAL -->
+<div id="spawnModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title text-center">Agar Clone</h2>
+            </div>
+            <div class="modal-body">
+                <h3 class="text-center">Hello, <span class="player-name"></span>!</h3>
+                <div class="play-btn-wrapper">
+                    <button id="join-team-btn" type="button" class="btn play-button">Join a Team!</button>
+                    <button id="play-solo-btn" type="button" class="btn play-button start-game">Play Solo!</button>
+                </div>
+                <div class="stats-btn-wrapper">
+                    <button type="button" class="btn stats-btn player-stats-btn">See your stats</button>
+                    <button type="button" class="btn stats-btn all-stats-btn">See all stats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/socket.js"></script>
+</body>
+</html>
